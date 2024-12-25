@@ -17,5 +17,8 @@
     "url": "https://github.com/panem-enzo/task-tracker/issues"
   },
   "homepage": "https://github.com/panem-enzo/task-tracker#readme",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
 }

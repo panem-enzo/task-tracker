@@ -1,12 +1,12 @@
+require('dotenv').config()
 const http = require('http')
 
-const host = 'localhost'
-const port = process.env.PORT || 8080
+const host = process.env.SERVER_HOST || 'localhost' 
+const port = process.env.SERVER_PORT || 8080
 
 const server = http.createServer((req, res) => {
-    res.setHeader('Content-Type', 'application/json')
-    res.writeHead(200);
-    res.end(`{"message": "This is a JSON"}`)
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(`Working`)
 })
 
 server.listen(port, host, () => {
