@@ -1,0 +1,21 @@
+{
+  "name": "task-tracker",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000t\u0000a\u0000s\u0000k\u0000-\u0000t\u0000r\u0000a\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panem-enzo/task-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/panem-enzo/task-tracker/issues"
+  },
+  "homepage": "https://github.com/panem-enzo/task-tracker#readme",
+  "keywords": []
+}
