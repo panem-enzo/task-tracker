@@ -1,0 +1,16 @@
+[
+  {
+    "id": "b7ee530b-164c-45b9-a277-b8f7bc6706f0",
+    "description": "Go to the  gym",
+    "status": "to-do",
+    "createdAt": "2024-12-25T21:34:25.066Z",
+    "updatedAt": "2024-12-25T21:34:25.066Z"
+  },
+  {
+    "id": "3c40d40f-3ec0-44a7-ad94-b22ef0c03a34",
+    "description": "Cook food for dinner",
+    "status": "done",
+    "createdAt": "2024-12-25T21:35:20.840Z",
+    "updatedAt": "2024-12-25T21:35:20.840Z"
+  }
+]
