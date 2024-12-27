@@ -1,6 +1,6 @@
 require('dotenv').config()
 const http = require('http')
-const { getTasks, addTask, markTask } = require('./controllers/taskController')
+const { getTasks, addTask, markTask, removeTask } = require('./controllers/taskController')
 
 const host = process.env.SERVER_HOST || 'localhost' 
 const port = process.env.SERVER_PORT || 8080
@@ -13,6 +13,9 @@ const server = http.createServer((req, res) => {
     } else if (req.url.match(/\/api\/tasks\/([a-zA-Z0-9-]+)/) && req.method === 'PUT') {
         const id = req.url.split('/')[3]
         markTask(req, res, id)
+    } else if (req.url.match(/\/api\/tasks\/([a-zA-Z0-9-]+)/) && req.method === 'DELETE') {
+        const id = req.url.split('/')[3]
+        removeTask(req, res, id)
     } else {
         res.writeHead(404, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: 'Route not found' }))
@@ -20,5 +23,5 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+    console.log(`Server is running on http://${host}:${port}`)
 })
