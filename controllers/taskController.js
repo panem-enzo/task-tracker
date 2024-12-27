@@ -21,13 +21,13 @@ async function addTask(req, res) {
         const body = await getData(req)
         const { description, status } = JSON.parse(body)
 
-        let datetime = new Date()
+        let dateTime = new Date()
 
         const task = {
             description,
             status,
-            createdAt: datetime,
-            updatedAt: datetime
+            createdAt: dateTime.toLocaleString(),
+            updatedAt: dateTime.toLocaleString()
         }
 
         const newTask = await Task.create(task)
@@ -55,11 +55,13 @@ async function markTask(req, res, id) {
 
             const { status } = JSON.parse(body) 
 
+            let dateTime = new Date()
+
             const taskData = {
                 description: task.description,
                 status,
                 createdAt: task.createdAt,
-                updatedAt: task.updatedAt
+                updatedAt: dateTime.toLocaleString()
             }
 
             const updatedTask = await Task.update(id, taskData)
