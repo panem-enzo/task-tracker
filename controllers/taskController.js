@@ -1,10 +1,9 @@
 const Task = require('../models/taskModel')
-const { getPostData } = require('../utils/taskUtils')
+const { getData } = require('../utils/taskUtils')
 
 // @desc Returns all the tasks
 // @route GET /api/tasks
 async function getTasks(req, res) {
-    // Parse the request body into a string
     try {
         const tasks = await Task.findAll()
         res.writeHead(200, { 'Content-Type': 'application/json' })
@@ -17,10 +16,9 @@ async function getTasks(req, res) {
 // @desc Creates a new task
 // @route POST /api/tasks
 async function addTask(req, res) {
-    // Parse the request body into a string
     try {
-
-        const body = await getPostData(req)
+        // Parse the request body into a string
+        const body = await getData(req)
         const { description, status } = JSON.parse(body)
 
         let datetime = new Date()
@@ -41,7 +39,42 @@ async function addTask(req, res) {
     }
 }
 
+// @desc Mark the task as to-do, in-progress, or done
+// @route PUT /api/tasks/:id
+async function markTask(req, res, id) {
+    try {
+        
+        const task = await Task.findById(id)
+
+        if (!task) {
+            res.writeHead(404, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ message: 'Task not found' }))
+        } else {
+            // Parse the request body into a string
+            const body = await getData(req)
+
+            const { status } = JSON.parse(body) 
+
+            const taskData = {
+                description: task.description,
+                status,
+                createdAt: task.createdAt,
+                updatedAt: task.updatedAt
+            }
+
+            const updatedTask = await Task.update(id, taskData)
+
+            res.writeHead(200, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify(updatedTask))
+        }
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getTasks,
-    addTask
+    addTask,
+    markTask
 }
