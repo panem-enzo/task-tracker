@@ -10,12 +10,12 @@ const server = http.createServer((req, res) => {
         getTasks(req, res)
     } else if (req.url === '/api/tasks' && req.method === 'POST') {
         addTask(req, res)
-    } else if (req.url.match(/\/api\/tasks\/([0-9]+)/) && req.method === 'PUT') {
+    } else if (req.url.match(/\/api\/tasks\/([a-zA-Z0-9-]+)/) && req.method === 'PUT') {
         const id = req.url.split('/')[3]
         markTask(req, res, id)
     } else {
         res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ message: 'Route not found'}))
+        res.end(JSON.stringify({ message: 'Route not found' }))
     }
 })
 
