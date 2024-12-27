@@ -21,13 +21,13 @@ async function addTask(req, res) {
         const body = await getData(req)
         const { description, status } = JSON.parse(body)
 
-        let datetime = new Date()
+        let dateTime = new Date()
 
         const task = {
             description,
             status,
-            createdAt: datetime,
-            updatedAt: datetime
+            createdAt: dateTime.toLocaleString(),
+            updatedAt: dateTime.toLocaleString()
         }
 
         const newTask = await Task.create(task)
@@ -55,11 +55,13 @@ async function markTask(req, res, id) {
 
             const { status } = JSON.parse(body) 
 
+            let dateTime = new Date()
+
             const taskData = {
                 description: task.description,
                 status,
                 createdAt: task.createdAt,
-                updatedAt: task.updatedAt
+                updatedAt: dateTime.toLocaleString()
             }
 
             const updatedTask = await Task.update(id, taskData)
@@ -73,8 +75,32 @@ async function markTask(req, res, id) {
     }
 }
 
+// @desc remove a task
+// @route DELETE /api/tasks/:id
+async function removeTask(req, res, id) {
+    try {
+
+        const task = await Task.findById(id)
+
+        if (!task) {
+            res.writeHead(404, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ message: 'Task not found' }))
+        } else {
+
+            await Task.remove(id)
+
+            res.writeHead(200, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ message: `Task (${id}): successfully removed` }))
+        }
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getTasks,
     addTask,
-    markTask
+    markTask,
+    removeTask
 }

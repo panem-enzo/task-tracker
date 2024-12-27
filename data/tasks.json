@@ -1,1 +1,16 @@
-[{"id":"b7ee530b-164c-45b9-a277-b8f7bc6706f0","description":"Go to the  gym","status":"to-do","createdAt":"2024-12-25T21:34:25.066Z","updatedAt":"2024-12-25T21:34:25.066Z"},{"id":"3c40d40f-3ec0-44a7-ad94-b22ef0c03a34","description":"Cook food for dinner","status":"to-do","createdAt":"2024-12-25T21:35:20.840Z","updatedAt":"2024-12-25T21:35:20.840Z"}]
+[
+	{
+		"id": "0f7d3740-0611-461d-9144-9622b309af75",
+		"description": "Dinner at 7pm",
+		"status": "done",
+		"createdAt": "12/27/2024, 5:51:18 PM",
+		"updatedAt": "12/27/2024, 5:55:49 PM"
+	},
+	{
+		"id": "7f942bac-c516-41ef-af40-a95ff182c165",
+		"description": "Take inno's phone, so he doesn't procrastinate",
+		"status": "done",
+		"createdAt": "12/27/2024, 6:00:06 PM",
+		"updatedAt": "12/27/2024, 6:00:44 PM"
+	}
+]

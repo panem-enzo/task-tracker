@@ -1,7 +1,8 @@
 const fs = require('fs')
 
 function writeDataToFile(filename, content) {
-    fs.writeFileSync(filename, JSON.stringify(content), 'utf-8', (err) => {
+    // 2nd and 3rd parameter ensures ideal JSON format is preserved
+    fs.writeFileSync(filename, JSON.stringify(content, null, '\t'), 'utf-8', (err) => {
         if (err) {
             console.log(err)
         }
