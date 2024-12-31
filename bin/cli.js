@@ -1,5 +1,37 @@
 #!/usr/bin/env node
 
+const host = 'localhost'
+const port = 8080
+
+async function addTask(desc) {
+    await fetch(`http://${host}:${port}/api/tasks`, {
+        method: 'POST',
+        body: JSON.stringify({ 
+            "description": desc, 
+            "status":  "to-do"
+        })
+    })
+}
+
+async function removeTask(id) {
+    await fetch(`http://${host}:${port}/api/tasks/${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ 
+            "id": id
+        })
+    })
+}
+
+async function updateStatus(status, id) {
+    await fetch(`http://${host}:${port}/api/tasks/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ 
+            "id": id,
+            "status": status
+        })
+    })
+}
+
 const args = process.argv
 // Default: slice index at 2 because of structure of process.argv
 // Index 0: path to nodejs executable
@@ -7,33 +39,33 @@ const args = process.argv
 const myArgs = args.slice(2)
 const command = myArgs[0]
 
-const host = 'localhost'
-const port = 8080
+// Execute Command
+let desc = myArgs[1]
+let id = myArgs[1]
 
-async function getData() {
-    
-    const response = await fetch(`http://${host}:${port}/api/tasks`, {
-        method: 'GET'
-    })
-
-    console.log(response)
+switch (command) {
+    case 'add':
+        addTask(desc)
+        console.log('Task Successfully Added!')
+        break
+    case 'update': 
+        desc = myArgs[2]
+        // updateTask(id, desc)
+        break
+    case 'delete': 
+        removeTask(id)
+        console.log(`Task (${id}) successfully deleted`)
+        break
+    case 'list': 
+        getTasks()
+        break
+    case 'mark-in-progress':
+        updateStatus('in-progress', id)
+        console.log(`Task (${id}) status successfully updated to 'in-progress'`)
+        break
+    case 'mark-done':
+        updateStatus('done', id)
+        console.log(`Task (${id}) status successfully updated to 'done'`)
+        break
+    default: console.log(`'${command}' command does not exist`)
 }
-
-getData()
-
-// switch (command) {
-//     case 'add':
-//         console.log('added')
-//         console.log('multi line')
-//         break
-//     case 'update': 
-//         console.log('updated')
-//         break
-//     case 'delete': 
-//         console.log('deleted')
-//         break
-//     case 'list': 
-//         console.log('list')
-//         break
-//     default: console.log(`'${command}' command is not valid`)
-// }
