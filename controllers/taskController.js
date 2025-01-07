@@ -98,9 +98,24 @@ async function removeTask(req, res, id) {
     }
 }
 
+// @desc remove ALL tasks
+// @route DELETE /api/tasks
+async function removeAll(req, res) {
+    try {
+        await Task.removeAll()
+
+        res.writeHead(200, { 'Content-Type': 'application/json' })
+        res.end(JSON.stringify({ message: `All tasks successfully removed` }))
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getTasks,
     addTask,
     markTask,
-    removeTask
+    removeTask,
+    removeAll
 }
