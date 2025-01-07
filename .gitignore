@@ -1,0 +1,53 @@
+# Node.js dependencies
+/node_modules/
+
+# Log files
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# npm / yarn lock files (if you're using Yarn, include `yarn.lock` too)
+package-lock.json
+yarn.lock
+
+# Build directories
+/dist
+/build
+
+# IDE or editor specific files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+/coverage
+
+# Optional: Debugger and other local config files
+/.vscode/
+*.swp
+
+# Docker-related
+docker-compose.override.yml
+.docker/
+
+# Generated files (temporary, cache, etc.)
+*.pid
+*.seed
+*.bak
+*.tmp
+
+# Documentation
+*.pdf
+
+# AWS or other cloud-related files
+*.pem
+*.key
+
+# Other potential sensitive files or artifacts
+*.tgz

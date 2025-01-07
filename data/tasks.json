@@ -1,23 +1,16 @@
 [
 	{
-		"id": "0f7d3740-0611-461d-9144-9622b309af75",
-		"description": "Dinner at 7pm",
-		"status": "done",
-		"createdAt": "12/27/2024, 5:51:18 PM",
-		"updatedAt": "12/27/2024, 5:55:49 PM"
-	},
-	{
-		"id": "2230179b-70e5-47ce-b7bf-9411baf221e1",
-		"description": "Go to the gym",
+		"id": "d6a9cf31-3500-476e-8f5a-72ee46bc4570",
+		"description": "first task",
 		"status": "in-progress",
-		"createdAt": "12/31/2024, 12:43:38 PM",
-		"updatedAt": "12/31/2024, 1:02:07 PM"
+		"createdAt": "1/6/2025, 10:11:09 PM",
+		"updatedAt": "1/6/2025, 10:11:30 PM"
 	},
 	{
-		"id": "5db26674-7c35-457c-a7ab-b5dcf61bac9b",
-		"description": "Study Calculus for 3 hours",
+		"id": "61a4dec7-86b3-4691-a432-4358d94865da",
+		"description": "second task",
 		"status": "to-do",
-		"createdAt": "12/31/2024, 1:03:04 PM",
-		"updatedAt": "12/31/2024, 1:03:04 PM"
+		"createdAt": "1/6/2025, 10:11:14 PM",
+		"updatedAt": "1/6/2025, 10:11:14 PM"
 	}
 ]

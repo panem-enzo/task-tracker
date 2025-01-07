@@ -44,10 +44,18 @@ function remove(id) {
     })
 }
 
+function removeAll() {
+    return new Promise((resolve, reject) => {
+        writeDataToFile('./data/tasks.json', JSON.parse('[]'))
+        resolve()
+    })
+}
+
 module.exports = {
     findAll,
     create,
     findById,
     update,
-    remove
+    remove,
+    removeAll
 }
