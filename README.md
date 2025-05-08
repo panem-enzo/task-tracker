@@ -95,7 +95,3 @@ task-tracker/
 ## Contributing
 
 Feel free to open issues or submit pull requests. Contributions are welcome!
-
-## License
-
-This project is licensed under the MIT License.
