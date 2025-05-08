@@ -37,7 +37,7 @@ The **Task Tracker CLI** is a simple, command-line-based task management tool th
 2. Run the CLI:
 
    ```bash
-   node bin/cli.js
+   node bin/cli.js {cli command}
    ```
 
 ## API Endpoints
